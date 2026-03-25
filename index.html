@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeunes Leaders de Demain</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231a3a2a'/%3E%3Crect x='47' y='53' width='6' height='29' rx='3' fill='%23c9a84c'/%3E%3Cpath d='M50 55 C37 49 28 34 35 18 C43 31 50 44 50 55Z' fill='%234a7c5f'/%3E%3Cpath d='M50 55 C63 49 72 34 65 18 C57 31 50 44 50 55Z' fill='%23e8914a'/%3E%3Ccircle cx='50' cy='13' r='6.5' fill='%23c9a84c'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --amber: #e8914a;
+    --gold: #c9a84c;
+    --cream: #faf6ef;
+    --sage: #4a7c5f;
+    --dark: #0f1f16;
+    --text: #2c3e35;
+    --light-sage: #e8f0eb;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(26,58,42,0.97);
+    padding: 1rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    backdrop-filter: blur(8px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold); font-size: 1.25rem; font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--amber); }
+  .nav-cta {
+    background: var(--amber); color: white; border: none;
+    padding: 0.6rem 1.5rem; border-radius: 50px; font-size: 0.88rem;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--forest);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 5rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,145,74,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(74,124,95,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(232,145,74,0.15); border: 1px solid rgba(232,145,74,0.4);
+    color: var(--amber); padding: 0.4rem 1rem; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    color: white; font-size: 4rem; line-height: 1.1;
+    font-weight: 900; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+  .hero-title span { color: var(--amber); }
+  .hero-sub {
+    color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.7;
+    margin-bottom: 2.5rem; font-weight: 300;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.3s both; }
+  .btn-primary {
+    background: var(--amber); color: white;
+    padding: 0.9rem 2rem; border-radius: 50px; border: none;
+    font-size: 1rem; font-weight: 600; cursor: pointer;
+    transition: all 0.25s; font-family: 'DM Sans', sans-serif;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: #d4804a; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232,145,74,0.4); }
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 0.9rem 2rem; border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    font-size: 1rem; font-weight: 500; cursor: pointer;
+    transition: all 0.25s; font-family: 'DM Sans', sans-serif;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px; padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    width: 100%; max-width: 420px;
+  }
+  .hero-stat {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-stat:last-child { border-bottom: none; }
+  .stat-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .stat-icon.orange { background: rgba(232,145,74,0.2); }
+  .stat-icon.green { background: rgba(74,124,95,0.25); }
+  .stat-icon.gold { background: rgba(201,168,76,0.2); }
+  .stat-text .stat-num { color: white; font-size: 1.5rem; font-weight: 700; }
+  .stat-text .stat-label { color: rgba(255,255,255,0.55); font-size: 0.82rem; }
+
+  /* PROBLEM SECTION */
+  .section { padding: 6rem 5rem; }
+  .section-tag {
+    display: inline-block; background: var(--light-sage);
+    color: var(--sage); padding: 0.35rem 1rem; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 700; line-height: 1.2;
+    margin-bottom: 1.5rem; color: var(--forest);
+  }
+  .section-sub { color: #6b7c72; font-size: 1.05rem; line-height: 1.7; max-width: 600px; }
+
+  /* PROBLEM */
+  .problem-section { background: white; }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .problem-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .problem-card {
+    background: var(--cream); border-radius: 16px; padding: 1.5rem;
+    border-left: 4px solid var(--amber);
+    transition: transform 0.2s;
+  }
+  .problem-card:hover { transform: translateY(-3px); }
+  .problem-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--forest); }
+  .problem-card p { font-size: 0.82rem; color: #7a8a81; line-height: 1.5; }
+  .problem-card.wide { grid-column: 1 / -1; border-left-color: var(--sage); }
+
+  /* SOLUTION / AXES */
+  .axes-section { background: var(--forest); }
+  .axes-section .section-tag { background: rgba(232,145,74,0.15); color: var(--amber); }
+  .axes-section .section-title { color: white; }
+  .axes-section .section-sub { color: rgba(255,255,255,0.6); }
+  .axes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .axe-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 1.8rem;
+    transition: all 0.25s;
+  }
+  .axe-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); border-color: rgba(232,145,74,0.4); }
+  .axe-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900;
+    color: rgba(232,145,74,0.3); line-height: 1; margin-bottom: 1rem;
+  }
+  .axe-card h3 { color: white; font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .axe-card p { color: rgba(255,255,255,0.55); font-size: 0.85rem; line-height: 1.6; }
+  .axe-card .axe-goal {
+    margin-top: 1rem; padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.78rem; color: var(--amber); font-weight: 500;
+  }
+
+  /* PERSONAS */
+  .personas-section { background: var(--cream); }
+  .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .persona-card {
+    border-radius: 24px; padding: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .persona-card.student { background: var(--forest); }
+  .persona-card.parent { background: white; border: 2px solid var(--light-sage); }
+  .persona-label {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 1.2rem;
+  }
+  .persona-card.student .persona-label { color: var(--amber); }
+  .persona-card.parent .persona-label { color: var(--sage); }
+  .persona-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .persona-card.student .persona-name { color: white; }
+  .persona-card.parent .persona-name { color: var(--forest); }
+  .persona-desc { font-size: 0.88rem; margin-bottom: 1.5rem; }
+  .persona-card.student .persona-desc { color: rgba(255,255,255,0.6); }
+  .persona-card.parent .persona-desc { color: #6b7c72; }
+  .persona-pains h4, .persona-gains h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+  .persona-card.student .persona-pains h4 { color: rgba(255,255,255,0.4); }
+  .persona-card.parent .persona-pains h4 { color: #aab8b0; }
+  .persona-card.student .persona-gains h4 { color: var(--amber); }
+  .persona-card.parent .persona-gains h4 { color: var(--sage); }
+  .pain-list, .gain-list { list-style: none; }
+  .pain-list li, .gain-list li {
+    font-size: 0.85rem; padding: 0.3rem 0;
+    display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.4;
+  }
+  .persona-card.student .pain-list li { color: rgba(255,255,255,0.65); }
+  .persona-card.parent .pain-list li { color: #5a6b62; }
+  .gain-list li { color: rgba(255,255,255,0.8); }
+  .persona-card.parent .gain-list li { color: var(--forest); }
+  .pain-icon { color: #e07070; }
+  .gain-icon { color: #6bc87a; }
+  .divider-small { margin: 1.2rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.08); }
+  .persona-card.parent .divider-small { border-color: var(--light-sage); }
+
+  /* PROGRAM STRUCTURE */
+  .program-section { background: white; }
+  .program-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+  .phases { display: flex; flex-direction: column; gap: 0; }
+  .phase-item {
+    display: flex; gap: 1.2rem; padding: 1.2rem 0;
+    border-bottom: 1px solid var(--light-sage);
+    transition: all 0.2s;
+  }
+  .phase-item:last-child { border-bottom: none; }
+  .phase-num {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--light-sage); color: var(--sage);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.88rem; flex-shrink: 0;
+  }
+  .phase-item.active .phase-num { background: var(--amber); color: white; }
+  .phase-content h4 { font-size: 0.95rem; font-weight: 700; color: var(--forest); margin-bottom: 0.2rem; }
+  .phase-content p { font-size: 0.82rem; color: #7a8a81; line-height: 1.5; }
+
+  .prototype-frame {
+    background: var(--forest);
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(26,58,42,0.2);
+  }
+  .frame-header {
+    background: rgba(255,255,255,0.08); padding: 1rem 1.5rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.red { background: #e06060; }
+  .dot.yellow { background: #e0b060; }
+  .dot.green { background: #60c080; }
+  .frame-url { background: rgba(255,255,255,0.08); border-radius: 6px; padding: 0.3rem 1rem; color: rgba(255,255,255,0.4); font-size: 0.78rem; flex: 1; }
+  .frame-content { padding: 2rem; }
+  .app-header { margin-bottom: 1.5rem; }
+  .app-logo { color: var(--amber); font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+  .app-welcome { color: white; font-size: 1.2rem; font-weight: 600; margin: 0.8rem 0 0.3rem; }
+  .app-sub { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
+  .cohort-card {
+    background: rgba(255,255,255,0.07); border-radius: 14px; padding: 1.2rem;
+    border: 1px solid rgba(232,145,74,0.25); margin-bottom: 1rem;
+  }
+  .cohort-tag { background: rgba(232,145,74,0.2); color: var(--amber); font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 50px; text-transform: uppercase; }
+  .cohort-title { color: white; font-size: 0.95rem; font-weight: 600; margin: 0.5rem 0 0.25rem; }
+  .cohort-meta { color: rgba(255,255,255,0.45); font-size: 0.78rem; }
+  .progress-bar { background: rgba(255,255,255,0.1); border-radius: 50px; height: 4px; margin: 0.8rem 0 0.3rem; }
+  .progress-fill { background: var(--amber); height: 100%; border-radius: 50px; width: 65%; }
+  .progress-label { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+  .module-row {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .module-row:last-child { border: none; }
+  .module-check { width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; flex-shrink: 0; }
+  .module-check.done { background: rgba(107,200,122,0.2); color: #6bc87a; }
+  .module-check.todo { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.3); }
+  .module-row span { color: rgba(255,255,255,0.7); font-size: 0.8rem; }
+
+  /* VALUE PROPOSITION */
+  .value-section { background: var(--light-sage); }
+  .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+  .value-card { background: white; border-radius: 20px; padding: 2rem; }
+  .value-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--forest); margin-bottom: 1.2rem; }
+  .value-item { display: flex; gap: 0.8rem; margin-bottom: 1rem; align-items: flex-start; }
+  .value-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .value-icon.green { background: rgba(74,124,95,0.1); }
+  .value-icon.orange { background: rgba(232,145,74,0.1); }
+  .value-text h5 { font-size: 0.88rem; font-weight: 700; color: var(--forest); margin-bottom: 0.15rem; }
+  .value-text p { font-size: 0.82rem; color: #7a8a81; line-height: 1.5; }
+
+  /* TESTIMONIALS */
+  .quotes-section { background: var(--cream); }
+  .quotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .quote-card { background: white; border-radius: 20px; padding: 2rem; border-top: 4px solid var(--sage); }
+  .quote-card.amber-top { border-top-color: var(--amber); }
+  .quote-text { font-size: 0.92rem; line-height: 1.7; color: var(--text); font-style: italic; margin-bottom: 1.5rem; }
+  .quote-text::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--amber); line-height: 0; vertical-align: -0.5rem; margin-right: 0.2rem; }
+  .quoter { display: flex; align-items: center; gap: 0.8rem; }
+  .quoter-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+  .quoter-avatar.g { background: #e8f4ec; }
+  .quoter-avatar.p { background: #fef0e6; }
+  .quoter-name { font-size: 0.85rem; font-weight: 700; color: var(--forest); }
+  .quoter-role { font-size: 0.75rem; color: #9aab9f; }
+
+  /* PRICING */
+  .pricing-section { background: var(--forest); }
+  .pricing-section .section-tag { background: rgba(232,145,74,0.15); color: var(--amber); }
+  .pricing-section .section-title { color: white; }
+  .pricing-section .section-sub { color: rgba(255,255,255,0.6); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .price-card {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 2rem; transition: all 0.25s;
+  }
+  .price-card.featured {
+    background: var(--amber); border-color: var(--amber);
+    transform: translateY(-6px);
+  }
+  .price-card:not(.featured):hover { background: rgba(255,255,255,0.12); }
+  .price-tier { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+  .price-card:not(.featured) .price-tier { color: rgba(255,255,255,0.45); }
+  .price-card.featured .price-tier { color: rgba(255,255,255,0.8); }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .price-card:not(.featured) .price-amount { color: white; }
+  .price-card.featured .price-amount { color: white; }
+  .price-period { font-size: 0.8rem; margin-bottom: 1.5rem; }
+  .price-card:not(.featured) .price-period { color: rgba(255,255,255,0.45); }
+  .price-card.featured .price-period { color: rgba(255,255,255,0.75); }
+  .price-features { list-style: none; margin-bottom: 2rem; }
+  .price-features li {
+    font-size: 0.85rem; padding: 0.35rem 0;
+    display: flex; gap: 0.5rem; align-items: flex-start; line-height: 1.4;
+  }
+  .price-card:not(.featured) .price-features li { color: rgba(255,255,255,0.65); }
+  .price-card.featured .price-features li { color: rgba(255,255,255,0.9); }
+  .check-feat { color: #6bc87a; }
+  .price-card.featured .check-feat { color: rgba(255,255,255,0.9); }
+  .price-btn {
+    width: 100%; padding: 0.8rem; border-radius: 50px; border: none;
+    font-size: 0.9rem; font-weight: 600; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+  }
+  .price-btn.outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.25); color: white; }
+  .price-btn.outline:hover { border-color: rgba(255,255,255,0.6); }
+  .price-btn.solid { background: white; color: var(--amber); }
+  .price-btn.solid:hover { background: var(--cream); }
+
+  /* CTA */
+  .cta-section {
+    background: var(--amber);
+    padding: 6rem 5rem;
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; color: white; font-weight: 900; margin-bottom: 1rem;
+  }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 2.5rem; }
+  .cta-btns { display: flex; gap: 1rem; justify-content: center; }
+  .cta-btn-white { background: white; color: var(--amber); padding: 1rem 2.5rem; border-radius: 50px; font-size: 1rem; font-weight: 700; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-decoration: none; display: inline-block; }
+  .cta-btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+  .cta-btn-outline { background: transparent; color: white; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1rem; font-weight: 600; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-decoration: none; display: inline-block; }
+  .cta-btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); padding: 3rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; }
+  .footer-tagline { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin-top: 0.3rem; }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--amber); }
+  .footer-note { color: rgba(255,255,255,0.25); font-size: 0.75rem; }
+
+  /* PROTOTYPE BADGE */
+  .prototype-badge {
+    position: fixed; bottom: 1.5rem; right: 1.5rem;
+    background: var(--amber); color: white;
+    padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
+    box-shadow: 0 4px 15px rgba(232,145,74,0.4); z-index: 99;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 15px rgba(232,145,74,0.4); }
+    50% { box-shadow: 0 4px 25px rgba(232,145,74,0.7); }
+  }
+
+  /* LOGO MARK */
+  .logo-mark { display:inline-flex; align-items:center; gap:0.6rem; text-decoration:none; }
+  .logo-svg { width:34px; height:34px; flex-shrink:0; }
+  .logo-text-block { display:flex; flex-direction:column; line-height:1.15; }
+  .logo-text-main { font-family:'Playfair Display',serif; color:var(--gold); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; }
+  .logo-text-sub { color:rgba(255,255,255,0.45); font-size:0.62rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; }
+
+  /* HAMBURGER */
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+  .hamburger span { display:block; width:22px; height:2px; background:rgba(255,255,255,0.8); border-radius:2px; transition:all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE NAV DRAWER */
+  .mobile-menu { display:none; position:fixed; top:60px; left:0; right:0; background:rgba(15,31,22,0.98); padding:1.5rem 2rem; z-index:99; flex-direction:column; gap:1rem; border-bottom:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(12px); }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a { color:rgba(255,255,255,0.8); text-decoration:none; font-size:1rem; font-weight:500; padding:0.5rem 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .mobile-menu .mobile-cta { background:var(--amber); color:white; text-align:center; padding:0.8rem; border-radius:50px; font-weight:700; border:none; margin-top:0.5rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .hero { padding: 7rem 3rem 4rem; gap: 3rem; }
+    .section { padding: 5rem 3rem; }
+    .hero-title { font-size: 3.2rem; }
+    .axes-grid { grid-template-columns: repeat(2, 1fr); }
+    .quotes-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 820px) {
+    nav { padding: 0.9rem 1.5rem; height: 60px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .logo-text-sub { display: none; }
+
+    .hero { grid-template-columns: 1fr; padding: 5.5rem 1.5rem 3.5rem; }
+    .hero-visual { display: none; }
+    .hero-title { font-size: 2.6rem; }
+    .hero-sub { font-size: 1rem; }
+    .hero-btns { flex-direction: column; }
+    .hero-btns a { text-align: center; }
+
+    .section { padding: 3.5rem 1.5rem; }
+    .section-title { font-size: 2rem; }
+
+    .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .problem-cards { grid-template-columns: 1fr 1fr; }
+
+    .axes-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .axe-num { font-size: 1.8rem; }
+
+    .persona-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .program-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .value-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .quotes-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+    .price-card.featured { transform: none; }
+
+    footer { flex-direction: column; text-align: center; padding: 2.5rem 1.5rem; gap: 1.2rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+
+    .cta-section { padding: 4rem 1.5rem; }
+    .cta-section h2 { font-size: 1.8rem; }
+    .cta-btns { flex-direction: column; align-items: center; }
+
+    .prototype-badge { bottom: 1rem; right: 1rem; font-size: 0.7rem; padding: 0.5rem 1rem; }
+  }
+
+  @media (max-width: 500px) {
+    .hero-title { font-size: 2.1rem; }
+    .problem-cards { grid-template-columns: 1fr; }
+    .axes-grid { grid-template-columns: 1fr; }
+    .hero-badge { font-size: 0.72rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PROTOTYPE BADGE -->
+<div class="prototype-badge">Prototype MVP v1.0</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo-mark">
+    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="22" fill="#1a3a2a"/>
+      <rect x="47" y="53" width="6" height="29" rx="3" fill="#c9a84c"/>
+      <path d="M50 55 C37 49 28 34 35 18 C43 31 50 44 50 55Z" fill="#4a7c5f"/>
+      <path d="M50 55 C63 49 72 34 65 18 C57 31 50 44 50 55Z" fill="#e8914a"/>
+      <circle cx="50" cy="13" r="6.5" fill="#c9a84c"/>
+    </svg>
+    <div class="logo-text-block">
+      <span class="logo-text-main">Leaders de Demain</span>
+      <span class="logo-text-sub">Programme éducatif · 12–17 ans</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#probleme">Le problème</a></li>
+    <li><a href="#solution">Notre approche</a></li>
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+  </ul>
+  <button class="nav-cta open-form">Rejoindre la liste d'attente</button>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#probleme" class="mobile-link">Le problème</a>
+  <a href="#solution" class="mobile-link">Notre approche</a>
+  <a href="#programme" class="mobile-link">Programme</a>
+  <a href="#tarifs" class="mobile-link">Tarifs</a>
+  <a href="#" class="mobile-cta open-form">Rejoindre la liste d'attente</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">🌱 Programme éducatif complémentaire · 12–17 ans · 4 à 6 semaines</div>
+    <h1 class="hero-title">
+      Former les<br><span>leaders</span><br>de demain,<br>aujourd'hui.
+    </h1>
+    <p class="hero-sub">
+      Un programme structuré en cohortes pour aider les jeunes à développer
+      leur communication, leur confiance et leur sens des responsabilités — 
+      là où l'école n'arrive pas toujours seule.
+    </p>
+    <div class="hero-btns">
+      <a href="#programme" class="btn-primary">Découvrir le programme</a>
+      <a href="#probleme" class="btn-outline">Voir le problème résolu</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-stat">
+        <div class="stat-icon orange">🎯</div>
+        <div class="stat-text">
+          <div class="stat-num">85%</div>
+          <div class="stat-label">des emplois de 2030 n'existent pas encore</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-icon green">💬</div>
+        <div class="stat-text">
+          <div class="stat-num">2/3</div>
+          <div class="stat-label">des parents constatent une baisse de l'expression orale</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-icon gold">📅</div>
+        <div class="stat-text">
+          <div class="stat-num">4–6 sem.</div>
+          <div class="stat-label">de programme structuré en cohortes de 15–20 jeunes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section problem-section" id="probleme">
+  <div class="problem-grid">
+    <div>
+      <div class="section-tag">Le problème</div>
+      <h2 class="section-title">Ce que l'école ne peut pas faire seule</h2>
+      <p class="section-sub">
+        Nos entrevues terrain avec des parents et des élèves à Montréal et Sherbrooke révèlent un fossé grandissant entre les compétences académiques et les compétences humaines essentielles à la vie réelle.
+      </p>
+    </div>
+    <div class="problem-cards">
+      <div class="problem-card">
+        <h4>📵 Addiction aux écrans</h4>
+        <p>Isolement social, langage appauvri, perte de concentration et de raisonnement autonome.</p>
+      </div>
+      <div class="problem-card">
+        <h4>🗣️ Confiance en public</h4>
+        <p>Difficulté à s'exprimer devant des inconnus. Aisance qui diminue avec l'âge.</p>
+      </div>
+      <div class="problem-card">
+        <h4>😤 Gestion émotionnelle</h4>
+        <p>Réactions impulsives, incapacité à formuler clairement un ressenti ou un désaccord.</p>
+      </div>
+      <div class="problem-card">
+        <h4>⏰ Gestion du temps</h4>
+        <p>Surcharge de tâches, manque de méthodes durables et difficulté à prioriser.</p>
+      </div>
+      <div class="problem-card wide">
+        <h4>🌍 Fausse image de la réalité</h4>
+        <p>Les influenceurs véhiculent une image simplifiée de la réussite, érodant les valeurs de persévérance, d'effort et de rigueur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION / AXES -->
+<section class="section axes-section" id="solution">
+  <div class="section-tag">Notre solution</div>
+  <h2 class="section-title">6 axes de développement concrets</h2>
+  <p class="section-sub">Chaque axe répond directement à un problème identifié sur le terrain. Aucune théorie sans pratique.</p>
+  <div class="axes-grid">
+    <div class="axe-card">
+      <div class="axe-num">01</div>
+      <h3>Communication & expression</h3>
+      <p>Développer la capacité à s'exprimer clairement à l'oral, argumenter et dialoguer dans des contextes variés.</p>
+      <div class="axe-goal">Objectif → Confiance en public et qualité des interactions</div>
+    </div>
+    <div class="axe-card">
+      <div class="axe-num">02</div>
+      <h3>Confiance en soi & initiative</h3>
+      <p>Sortir de sa zone de confort, oser prendre la parole et initier des actions concrètes.</p>
+      <div class="axe-goal">Objectif → Réduire la peur du jugement</div>
+    </div>
+    <div class="axe-card">
+      <div class="axe-num">03</div>
+      <h3>Gestion des émotions & résilience</h3>
+      <p>Reconnaître, comprendre et gérer ses émotions face aux défis, aux conflits et aux échecs.</p>
+      <div class="axe-goal">Objectif → Persévérance et stabilité émotionnelle</div>
+    </div>
+    <div class="axe-card">
+      <div class="axe-num">04</div>
+      <h3>Ouverture d'esprit & diversité</h3>
+      <p>Sensibilisation aux différences culturelles, à l'immigration et aux diverses réalités sociales.</p>
+      <div class="axe-goal">Objectif → Respect, tolérance, vivre-ensemble</div>
+    </div>
+    <div class="axe-card">
+      <div class="axe-num">05</div>
+      <h3>Valeurs & responsabilité</h3>
+      <p>Transmettre effort, discipline, persévérance — en contrepoids aux représentations simplifiées des réseaux sociaux.</p>
+      <div class="axe-goal">Objectif → Repères solides et réalistes</div>
+    </div>
+    <div class="axe-card">
+      <div class="axe-num">06</div>
+      <h3>Résolution de conflits & dialogue</h3>
+      <p>Gérer les désaccords de manière constructive et remplacer la confrontation par le dialogue.</p>
+      <div class="axe-goal">Objectif → Communication non-violente</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAS -->
+<section class="section personas-section">
+  <div class="section-tag">Nos usagers</div>
+  <h2 class="section-title">Deux personas, un même besoin</h2>
+  <p class="section-sub">Basé sur 3 entrevues d'empathie menées auprès d'élèves et de parents à Montréal et Sherbrooke.</p>
+  <div class="persona-grid">
+    <div class="persona-card student">
+      <div class="persona-label">Persona Élève</div>
+      <div class="persona-name">Eyram, 14 ans</div>
+      <p class="persona-desc">Secondaire 3 · Extrovertie · École privée Montréal</p>
+      <hr class="divider-small">
+      <div class="persona-pains">
+        <h4>Douleurs identifiées</h4>
+        <ul class="pain-list">
+          <li><span class="pain-icon">✕</span>Difficulté à gérer le temps et la surcharge scolaire</li>
+          <li><span class="pain-icon">✕</span>Mal à l'aise pour parler devant des inconnus</li>
+          <li><span class="pain-icon">✕</span>Manque de stratégies d'apprentissage à long terme</li>
+          <li><span class="pain-icon">✕</span>Peu d'encadrement sur l'usage responsable de l'IA</li>
+        </ul>
+      </div>
+      <hr class="divider-small">
+      <div class="persona-gains">
+        <h4>Valeur attendue</h4>
+        <ul class="gain-list">
+          <li><span class="gain-icon">✓</span>Espaces pour s'exprimer librement et créer</li>
+          <li><span class="gain-icon">✓</span>Activités interactives et interculturels</li>
+          <li><span class="gain-icon">✓</span>Éducation critique sur l'IA et les réseaux</li>
+        </ul>
+      </div>
+    </div>
+    <div class="persona-card parent">
+      <div class="persona-label">Persona Parent</div>
+      <div class="persona-name">Alida & Émilie</div>
+      <p class="persona-desc">Parents · 40-50 ans · Professionnelles · 2 enfants chacune</p>
+      <hr class="divider-small" style="border-color: var(--light-sage);">
+      <div class="persona-pains">
+        <h4>Douleurs identifiées</h4>
+        <ul class="pain-list">
+          <li><span class="pain-icon" style="color:#e07070;">✕</span>Addiction aux écrans et isolement social</li>
+          <li><span class="pain-icon" style="color:#e07070;">✕</span>Baisse de l'argumentation et du vocabulaire</li>
+          <li><span class="pain-icon" style="color:#e07070;">✕</span>Charge parentale accrue liée à la technologie</li>
+          <li><span class="pain-icon" style="color:#e07070;">✕</span>Manque de valeurs (rigueur, effort, discipline)</li>
+        </ul>
+      </div>
+      <hr class="divider-small" style="border-color: var(--light-sage);">
+      <div class="persona-gains" style="color: var(--sage);">
+        <h4 style="color: var(--sage);">Valeur attendue</h4>
+        <ul class="gain-list" style="color: var(--text);">
+          <li><span style="color: var(--sage);">✓</span>Programme structuré, non moralisateur, adapté à l'âge</li>
+          <li><span style="color: var(--sage);">✓</span>Développer éloquence et confiance en public</li>
+          <li><span style="color: var(--sage);">✓</span>Budget acceptable : 100$ – 300$ / cohorte</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="section program-section" id="programme">
+  <div class="program-grid">
+    <div>
+      <div class="section-tag">Le programme</div>
+      <h2 class="section-title">Une cohorte de 4 à 6 semaines, conçue pour agir</h2>
+      <p class="section-sub">Pas de cours magistraux. Des défis, des échanges guidés, des projets réels. Une progression concrète et mesurable sur plusieurs semaines.</p>
+      <div class="phases" style="margin-top: 2rem;">
+        <div class="phase-item active">
+          <div class="phase-num">1</div>
+          <div class="phase-content">
+            <h4>Découverte & mise en confiance (Semaines 1–2)</h4>
+            <p>Présentation du groupe, icebreakers interculturels, identification des forces de chaque participant. 2 ateliers/semaine.</p>
+          </div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-num">2</div>
+          <div class="phase-content">
+            <h4>Défis guidés & compétences clés (Semaines 2–4)</h4>
+            <p>Prise de parole structurée, dialogue constructif, gestion d'un désaccord, mini-projets collectifs. 1 défi actif par semaine.</p>
+          </div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-num">3</div>
+          <div class="phase-content">
+            <h4>Projet de leadership personnel (Semaines 4–5)</h4>
+            <p>Chaque participant conçoit et prépare son initiative de leadership dans son milieu réel, accompagné d'un facilitateur.</p>
+          </div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-num">4</div>
+          <div class="phase-content">
+            <h4>Présentation & célébration (Semaine 6)</h4>
+            <p>Présentation devant les parents et pairs, remise de certificat, plan d'action personnel pour la suite.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="prototype-frame">
+      <div class="frame-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="frame-url">app.jeunesladers.ca</div>
+      </div>
+      <div class="frame-content">
+        <div class="app-header">
+          <div class="app-logo">Leaders de Demain</div>
+          <div class="app-welcome">Bonjour, Eyram 👋</div>
+          <div class="app-sub">Cohorte Printemps 2026 · Semaine 3 sur 6</div>
+        </div>
+        <div class="cohort-card">
+          <span class="cohort-tag">En cours</span>
+          <div class="cohort-title">Communication & Confiance</div>
+          <div class="cohort-meta">Défi de la semaine · 45 min · Facilitatrice Karine</div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
+          <div class="progress-label">Semaine 3 / 6 complétées — 50%</div>
+        </div>
+        <div class="module-row"><div class="module-check done">✓</div><span>S1 · Présentation & forces personnelles</span></div>
+        <div class="module-row"><div class="module-check done">✓</div><span>S2 · Échange interculturel avec 2 pairs</span></div>
+        <div class="module-row"><div class="module-check done">✓</div><span>S3 · Atelier : gérer un désaccord</span></div>
+        <div class="module-row"><div class="module-check todo">→</div><span>S4 · Mini-pitch de mon projet de leadership</span></div>
+        <div class="module-row"><div class="module-check todo">○</div><span>S5 · Réseaux sociaux, IA & réalité</span></div>
+        <div class="module-row"><div class="module-check todo">○</div><span>S6 · Présentation finale devant les parents</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPOSITION -->
+<section class="section value-section">
+  <div style="text-align: center; max-width: 700px; margin: 0 auto 0;">
+    <div class="section-tag">Proposition de valeur</div>
+    <h2 class="section-title">Ce que nos participants gagnent vraiment</h2>
+  </div>
+  <div class="value-grid">
+    <div class="value-card">
+      <h3>Pour les jeunes (12–17 ans)</h3>
+      <div class="value-item">
+        <div class="value-icon green">💡</div>
+        <div class="value-text">
+          <h5>Compétences concrètes pour la vraie vie</h5>
+          <p>Pas de théorie abstraite — tout est mis en pratique à travers des défis réels.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon green">🎙️</div>
+        <div class="value-text">
+          <h5>Confiance pour s'exprimer et agir</h5>
+          <p>Sortir de sa zone de confort dans un cadre sécurisant et bienveillant.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon green">🌍</div>
+        <div class="value-text">
+          <h5>Ouverture sur le monde</h5>
+          <p>Rencontres interculturelles, sensibilisation à l'immigration, dialogue constructif.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon green">🤝</div>
+        <div class="value-text">
+          <h5>Un réseau de pairs motivés</h5>
+          <p>Rejoindre une communauté de jeunes partageant les mêmes objectifs de croissance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="value-card">
+      <h3>Pour les parents</h3>
+      <div class="value-item">
+        <div class="value-icon orange">🏫</div>
+        <div class="value-text">
+          <h5>Complément structuré à l'école</h5>
+          <p>Un encadrement non moralisateur qui renforce ce que la famille a déjà commencé.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon orange">📊</div>
+        <div class="value-text">
+          <h5>Progrès observables et mesurables</h5>
+          <p>Rapport de progression à chaque cohorte, disponible pour les parents.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon orange">📵</div>
+        <div class="value-text">
+          <h5>Réduction de la dépendance aux écrans</h5>
+          <p>Développer un usage critique et sain de la technologie et de l'IA.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon orange">💪</div>
+        <div class="value-text">
+          <h5>Des valeurs réelles transmises</h5>
+          <p>Effort, rigueur, persévérance — en contrepoint à la culture des réseaux sociaux.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section class="section quotes-section">
+  <div class="section-tag">Voix du terrain</div>
+  <h2 class="section-title">Ce qu'ils nous ont dit</h2>
+  <p class="section-sub">Extraits de nos entrevues d'empathie menées en février 2026.</p>
+  <div class="quotes-grid">
+    <div class="quote-card">
+      <p class="quote-text">J'aimerais avoir plus d'activités où on peut vraiment s'exprimer et apprendre en faisant des choses concrètes, pas juste écouter. Et avoir des espaces pour parler des différences culturelles.</p>
+      <div class="quoter">
+        <div class="quoter-avatar g">🌱</div>
+        <div>
+          <div class="quoter-name">Eyram, 14 ans</div>
+          <div class="quoter-role">Élève · Secondaire 3 · Montréal</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-card amber-top">
+      <p class="quote-text">Plus ma fille grandit, moins elle est à l'aise à parler en public. Les réseaux sociaux n'aident pas du tout pour l'argumentation. Elle a besoin d'apprendre à s'exprimer avec un vocabulaire riche.</p>
+      <div class="quoter">
+        <div class="quoter-avatar p">👩</div>
+        <div>
+          <div class="quoter-name">Alida, parent</div>
+          <div class="quoter-role">Master en gestion TI · 2 enfants</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <p class="quote-text">Ce qui m'inquiète c'est qu'avec l'IA, les enfants ne fournissent plus d'effort de raisonnement. Ils ont la réponse facile. Il faut les apprendre à penser par eux-mêmes.</p>
+      <div class="quoter">
+        <div class="quoter-avatar p">👩</div>
+        <div>
+          <div class="quoter-name">Émilie, parent</div>
+          <div class="quoter-role">Infirmière auxiliaire · 2 garçons ados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="tarifs">
+  <div class="section-tag">Tarification</div>
+  <h2 class="section-title">Accessible pour chaque famille</h2>
+  <p class="section-sub">Basé sur les retours terrain — budget acceptable identifié entre 100 $ et 300 $ par cohorte.</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tier">Cohorte Découverte</div>
+      <div class="price-amount">199$</div>
+      <div class="price-period">par participant · 4 semaines</div>
+      <ul class="price-features">
+        <li><span class="check-feat">✓</span>8 ateliers guidés (2/semaine)</li>
+        <li><span class="check-feat">✓</span>Accès à la communauté en ligne</li>
+        <li><span class="check-feat">✓</span>1 défi actif par semaine</li>
+        <li><span class="check-feat">✓</span>Rapport de fin de cohorte</li>
+      </ul>
+      <button class="price-btn outline open-form">S'inscrire</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-tier">⭐ Cohorte Leaders</div>
+      <div class="price-amount">299$</div>
+      <div class="price-period">par participant · 6 semaines</div>
+      <ul class="price-features">
+        <li><span class="check-feat">✓</span>Tout de Découverte, plus :</li>
+        <li><span class="check-feat">✓</span>Projet de leadership personnel</li>
+        <li><span class="check-feat">✓</span>Présentation devant les parents</li>
+        <li><span class="check-feat">✓</span>Certificat de participation</li>
+        <li><span class="check-feat">✓</span>Atelier parents inclus</li>
+      </ul>
+      <button class="price-btn solid open-form">Choisir ce forfait</button>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Cohorte École</div>
+      <div class="price-amount">Sur devis</div>
+      <div class="price-period">groupe de 15–20 jeunes</div>
+      <ul class="price-features">
+        <li><span class="check-feat">✓</span>Programme adapté à l'école</li>
+        <li><span class="check-feat">✓</span>Facilitation sur site</li>
+        <li><span class="check-feat">✓</span>Alignement PFEQ</li>
+        <li><span class="check-feat">✓</span>Partenariat CSS / direction</li>
+      </ul>
+      <button class="price-btn outline open-form">Nous contacter</button>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Prêt à rejoindre la prochaine cohorte ?</h2>
+  <p>Les places sont limitées à 20 participants par cohorte. Inscrivez votre jeune sur la liste d'attente dès aujourd'hui.</p>
+  <div class="cta-btns">
+    <a href="#" class="cta-btn-white open-form">Rejoindre la liste d'attente</a>
+    <a href="#" class="cta-btn-outline open-form">Parler à un conseiller</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="#" class="logo-mark" style="margin-bottom:0.4rem; display:inline-flex;">
+      <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="22" fill="rgba(255,255,255,0.06)"/>
+        <rect x="47" y="53" width="6" height="29" rx="3" fill="#c9a84c"/>
+        <path d="M50 55 C37 49 28 34 35 18 C43 31 50 44 50 55Z" fill="#4a7c5f"/>
+        <path d="M50 55 C63 49 72 34 65 18 C57 31 50 44 50 55Z" fill="#e8914a"/>
+        <circle cx="50" cy="13" r="6.5" fill="#c9a84c"/>
+      </svg>
+      <div class="logo-text-block">
+        <span class="logo-text-main">Leaders de Demain</span>
+        <span class="logo-text-sub">Programme éducatif · 12–17 ans</span>
+      </div>
+    </a>
+    <div class="footer-tagline">Montréal & Sherbrooke · Canada</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">À propos</a>
+    <a href="#">Notre approche</a>
+    <a href="#">Contact</a>
+    <a href="#">Politique de confidentialité</a>
+  </div>
+  <div class="footer-note">© 2026 Jeunes Leaders de Demain · Prototype MVP v1.0</div>
+</footer>
+
+<!-- ===== MODAL INSCRIPTION ===== -->
+<div id="modal-overlay" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(10,24,16,0.82); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:1rem;">
+
+  <div id="modal-box" style="background:var(--cream); border-radius:24px; width:100%; max-width:720px; max-height:92vh; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 32px 80px rgba(0,0,0,0.4); animation:modalIn 0.28s cubic-bezier(.22,.68,0,1.2);">
+
+    <!-- Modal Header — compact -->
+    <div style="background:var(--forest); padding:1.4rem 2rem; position:relative; flex-shrink:0; display:flex; align-items:center; gap:1.2rem;">
+      <!-- Logo mark small -->
+      <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <rect width="100" height="100" rx="22" fill="rgba(255,255,255,0.08)"/>
+        <rect x="47" y="53" width="6" height="29" rx="3" fill="#c9a84c"/>
+        <path d="M50 55 C37 49 28 34 35 18 C43 31 50 44 50 55Z" fill="#4a7c5f"/>
+        <path d="M50 55 C63 49 72 34 65 18 C57 31 50 44 50 55Z" fill="#e8914a"/>
+        <circle cx="50" cy="13" r="6.5" fill="#c9a84c"/>
+      </svg>
+      <div>
+        <div style="font-family:'Playfair Display',serif; color:white; font-size:1.25rem; font-weight:900; line-height:1.2;">Rejoindre la liste d'attente</div>
+        <div style="color:rgba(255,255,255,0.5); font-size:0.78rem; margin-top:0.15rem;">Cohorte Printemps 2026 · 20 places · Montréal & Sherbrooke</div>
+      </div>
+      <button id="modal-close" style="margin-left:auto; background:rgba(255,255,255,0.1); border:none; color:rgba(255,255,255,0.8); width:30px; height:30px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.22)';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.8)'">✕</button>
+    </div>
+
+    <!-- Form Body — scrollable, 2-col compact layout -->
+    <div id="form-body" style="padding:1.6rem 2rem; overflow-y:auto;">
+      <form id="waitlist-form" action="https://formspree.io/f/mgopwnaj" method="POST">
+
+        <!-- Row 1: Prénom + Nom -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; margin-bottom:0.9rem;">
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em;">Prénom *</label>
+            <input type="text" name="prenom" required placeholder="Marie" style="width:100%; padding:0.6rem 0.9rem; border:1.5px solid #d5e0d8; border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text); background:white; outline:none; transition:border 0.2s;" onfocus="this.style.borderColor='#4a7c5f'" onblur="this.style.borderColor='#d5e0d8'">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em;">Nom *</label>
+            <input type="text" name="nom" required placeholder="Tremblay" style="width:100%; padding:0.6rem 0.9rem; border:1.5px solid #d5e0d8; border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text); background:white; outline:none; transition:border 0.2s;" onfocus="this.style.borderColor='#4a7c5f'" onblur="this.style.borderColor='#d5e0d8'">
+          </div>
+        </div>
+
+        <!-- Row 2: Email + Téléphone -->
+        <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:0.9rem; margin-bottom:0.9rem;">
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em;">Courriel *</label>
+            <input type="email" name="email" required placeholder="marie@exemple.com" style="width:100%; padding:0.6rem 0.9rem; border:1.5px solid #d5e0d8; border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text); background:white; outline:none; transition:border 0.2s;" onfocus="this.style.borderColor='#4a7c5f'" onblur="this.style.borderColor='#d5e0d8'">
+          </div>
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em;">Téléphone</label>
+            <input type="tel" name="telephone" placeholder="514-555-0100" style="width:100%; padding:0.6rem 0.9rem; border:1.5px solid #d5e0d8; border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text); background:white; outline:none; transition:border 0.2s;" onfocus="this.style.borderColor='#4a7c5f'" onblur="this.style.borderColor='#d5e0d8'">
+          </div>
+        </div>
+
+        <!-- Row 3: Rôle + Ville -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; margin-bottom:0.9rem;">
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em;">Vous êtes… *</label>
+            <select name="role" required style="width:100%; padding:0.6rem 0.9rem; border:1.5px solid #d5e0d8; border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text); background:white; outline:none; cursor:pointer; appearance:none; transition:border 0.2s;" onfocus="this.style.borderColor='#4a7c5f'" onblur="this.style.borderColor='#d5e0d8'">
+              <option value="">-- Choisir --</option>
+              <option value="parent">Parent</option>
+              <option value="jeune">Jeune (12–17 ans)</option>
+              <option value="enseignant">Enseignant / Direction</option>
+              <option value="partenaire">Partenaire / Organisation</option>
+            </select>
+          </div>
+          <div>
+            <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em;">Ville *</label>
+            <select name="ville" required style="width:100%; padding:0.6rem 0.9rem; border:1.5px solid #d5e0d8; border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text); background:white; outline:none; cursor:pointer; appearance:none; transition:border 0.2s;" onfocus="this.style.borderColor='#4a7c5f'" onblur="this.style.borderColor='#d5e0d8'">
+              <option value="">-- Choisir --</option>
+              <option value="montreal">Montréal</option>
+              <option value="sherbrooke">Sherbrooke</option>
+              <option value="quebec">Québec</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 4: Forfait (horizontal radio chips) -->
+        <div style="margin-bottom:0.9rem;">
+          <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.05em;">Forfait d'intérêt</label>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <label style="display:flex; align-items:center; gap:0.35rem; cursor:pointer; background:white; border:1.5px solid #d5e0d8; border-radius:8px; padding:0.4rem 0.75rem; transition:all 0.2s; font-size:0.82rem;">
+              <input type="radio" name="forfait" value="Découverte (109$)" style="accent-color:#4a7c5f; width:14px; height:14px;">
+              <span style="color:var(--text); font-weight:500;">Découverte · 109$</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:0.35rem; cursor:pointer; background:white; border:1.5px solid #d5e0d8; border-radius:8px; padding:0.4rem 0.75rem; transition:all 0.2s; font-size:0.82rem;">
+              <input type="radio" name="forfait" value="Leaders (199$)" style="accent-color:#e8914a; width:14px; height:14px;">
+              <span style="color:var(--text); font-weight:500;">Leaders · 199$ ⭐</span>
+            </label>
+            <label style="display:flex; align-items:center; gap:0.35rem; cursor:pointer; background:white; border:1.5px solid #d5e0d8; border-radius:8px; padding:0.4rem 0.75rem; transition:all 0.2s; font-size:0.82rem;">
+              <input type="radio" name="forfait" value="École (sur devis)" style="accent-color:#4a7c5f; width:14px; height:14px;">
+              <span style="color:var(--text); font-weight:500;">École · Sur devis</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Row 5: Message -->
+        <div style="margin-bottom:1.2rem;">
+          <label style="display:block; font-size:0.75rem; font-weight:700; color:var(--forest); margin-bottom:0.3rem; text-transform:uppercase; letter-spacing:0.05em;">Message (optionnel)</label>
+          <textarea name="message" rows="2" placeholder="Ex : Mon fils a 15 ans et a de la difficulté à s'exprimer en public…" style="width:100%; padding:0.6rem 0.9rem; border:1.5px solid #d5e0d8; border-radius:9px; font-family:'DM Sans',sans-serif; font-size:0.88rem; color:var(--text); background:white; outline:none; resize:none; transition:border 0.2s; line-height:1.5;" onfocus="this.style.borderColor='#4a7c5f'" onblur="this.style.borderColor='#d5e0d8'"></textarea>
+        </div>
+
+        <!-- Hidden fields -->
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="Nouvelle inscription – Leaders de Demain">
+
+        <!-- Submit -->
+        <button type="submit" style="width:100%; padding:0.85rem; background:var(--amber); color:white; border:none; border-radius:50px; font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all 0.25s; letter-spacing:0.01em;" onmouseover="this.style.background='#d4804a';this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(232,145,74,0.45)'" onmouseout="this.style.background='var(--amber)';this.style.transform='none';this.style.boxShadow='none'">
+          Rejoindre la liste d'attente →
+        </button>
+        <p style="text-align:center; font-size:0.72rem; color:#aab8b0; margin-top:0.7rem;">Aucun engagement. Vos données ne seront jamais partagées.</p>
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div id="form-success" style="display:none; padding:3rem 2rem; text-align:center; flex-direction:column; align-items:center;">
+      <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:1rem;">
+        <rect width="100" height="100" rx="22" fill="#1a3a2a"/>
+        <rect x="47" y="53" width="6" height="29" rx="3" fill="#c9a84c"/>
+        <path d="M50 55 C37 49 28 34 35 18 C43 31 50 44 50 55Z" fill="#4a7c5f"/>
+        <path d="M50 55 C63 49 72 34 65 18 C57 31 50 44 50 55Z" fill="#e8914a"/>
+        <circle cx="50" cy="13" r="6.5" fill="#c9a84c"/>
+      </svg>
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--forest); margin-bottom:0.6rem;">Vous êtes sur la liste !</h3>
+      <p style="color:#6b7c72; font-size:0.92rem; line-height:1.7; max-width:380px; margin:0 auto 1.5rem;">Merci ! Nous vous contacterons dès l'ouverture des inscriptions pour la prochaine cohorte.</p>
+      <button id="modal-close-success" style="background:var(--forest); color:white; border:none; padding:0.75rem 2rem; border-radius:50px; font-family:'DM Sans',sans-serif; font-size:0.88rem; font-weight:600; cursor:pointer;">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes modalIn {
+  from { opacity:0; transform:translateY(16px) scale(0.97); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+/* Modal responsive */
+@media (max-width: 760px) {
+  #modal-box { border-radius:18px; }
+  #modal-box [style*="padding:1.6rem 2rem"] { padding: 1.2rem 1.2rem !important; }
+  #modal-box [style*="padding:1.4rem 2rem"] { padding: 1.1rem 1.2rem !important; }
+  #modal-box [style*="grid-template-columns:1fr 1fr"],
+  #modal-box [style*="grid-template-columns:1.2fr 1fr"] { grid-template-columns: 1fr !important; }
+}
+</style>
+
+<script>
+  // ---- Hamburger toggle ----
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-link, .mobile-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ---- Open modal ----
+  const overlay = document.getElementById('modal-overlay');
+  document.querySelectorAll('.open-form').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ---- Close modal ----
+  function closeModal() {
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-close-success').addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // ---- Formspree AJAX submit ----
+  const form = document.getElementById('waitlist-form');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Envoi en cours…';
+    btn.disabled = true;
+    btn.style.opacity = '0.75';
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('form-body').style.display = 'none';
+        const success = document.getElementById('form-success');
+        success.style.display = 'flex';
+      } else {
+        btn.textContent = 'Erreur — réessayer';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+      }
+    } catch {
+      btn.textContent = 'Erreur réseau — réessayer';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
+  });
+</script>
+
+</body>
+</html>
